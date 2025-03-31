@@ -1,8 +1,8 @@
 import React from "react";
-import SpotifyDashboard from "@/pages/SpotifyDashboard";
+import BaseLayout from "./BaseLayout";
 
 const AuthorizedLayout: React.FC = () => {
-  return <SpotifyDashboard />;
+  return <BaseLayout />;
 };
 
 export default AuthorizedLayout;

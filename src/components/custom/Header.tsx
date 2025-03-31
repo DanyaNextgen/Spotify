@@ -17,7 +17,7 @@ const Header = () => {
         <div className="flex gap-3">
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="p-2 hover:bg-neutral-800 hover:text-white">
+                <Button variant="ghost" className="sm: hidden md:block lg:block p-2 hover:bg-neutral-800 hover:text-white">
                     <BsThreeDots className="text-xl" />
                 </Button>
                 </DropdownMenuTrigger>
@@ -30,16 +30,16 @@ const Header = () => {
                 </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button variant="ghost" className="p-2 hover:bg-neutral-800 hover:text-white">
+            <Button variant="ghost" className="sm: hidden md:hidden lg:block p-2 hover:bg-neutral-800 hover:text-white">
                 <MdArrowBackIosNew className="text-3xl"/>
             </Button>
-            <Button variant="ghost" className="p-2 hover:bg-neutral-800 hover:text-white">
+            <Button variant="ghost" className="sm: hidden md:hidden lg:block p-2 hover:bg-neutral-800 hover:text-white">
                 <MdArrowForwardIos className="text-xl" />
             </Button>
         </div>
         
         <div className="flex gap-4">
-            <Button variant="ghost" className="p-2 hover:bg-neutral-800 hover:text-white">
+            <Button variant="ghost" className="sm: hidden md:block lg:block p-2 hover:bg-neutral-800 hover:text-white">
                 <GoHomeFill className="text-2xl" />
             </Button>
 
@@ -57,13 +57,13 @@ const Header = () => {
         </div>
 
         <div className="flex gap-5">
-            <Button variant="outline" className="text-black rounded-3xl">
+            <Button variant="outline" className="sm: hidden md:hidden lg:block text-black rounded-3xl">
                 Узнать больше о премиум
             </Button>
-            <Button variant="ghost" className="p-2 hover:bg-neutral-800 hover:text-white">
+            <Button variant="ghost" className="sm: hidden md:block lg:block p-2 hover:bg-neutral-800 hover:text-white">
                 <FaRegBell className="text-xl" />
             </Button>
-            <Button variant="ghost" className="p-2 hover:bg-neutral-800 hover:text-white">
+            <Button variant="ghost" className="sm: hidden md:block lg:block p-2 hover:bg-neutral-800 hover:text-white">
                 <PiUsersThree className="text-xl" />
             </Button>
 

@@ -3,8 +3,6 @@ import "./App.css";
 import BaseLayout from "@/layouts/BaseLayout";
 import AuthorizedLayout from "@/layouts/AuthorizedLayout";
 import Login from "@/pages/login";
-import SpotifyDashboard from "./pages/SpotifyDashboard";
-
 
 function App() {
   const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
@@ -12,7 +10,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={isAuthenticated ? <BaseLayout /> : <Navigate to="/login" />} >
-        <Route index element={<SpotifyDashboard />} />
+        <Route index element={<BaseLayout />} />
       </Route>
 
       <Route path="/me" element={<AuthorizedLayout />}>

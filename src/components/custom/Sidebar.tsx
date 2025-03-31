@@ -9,7 +9,7 @@ const Sidebar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
 
   return (
-    <ResizablePanel defaultSize={20} className="bg-[#121212] text-white w-full h-screen rounded-2xl">
+    <ResizablePanel defaultSize={20} className="bg-[#121212] text-white w-full h-screen rounded-2xl hidden sm:hidden md:hidden lg:block">
       <div className="p-4 flex flex-col gap-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-2">
@@ -17,12 +17,10 @@ const Sidebar = () => {
             <h2 className="text-lg font-bold">Моя медиатека</h2>
           </div>
           <div className="flex items-center gap-2">
-            <button className="p-2 hover:bg-neutral-800 rounded">
               <Button>
                 Создать
                 <GoPlus />
               </Button>
-            </button>
             <button className="p-2 hover:bg-neutral-800 rounded">
               <IoMdArrowForward />
             </button>
@@ -46,13 +44,10 @@ const Sidebar = () => {
               <IoIosSearch />
             </button>
           )}
-          <button className="p-2 flex items-center gap-2 hover:bg-neutral-800 rounded">
             <Button>
                 Недавние
                 <IoIosList />
             </Button>
-            
-          </button>
         </div>
 
         <div className="mt-4 flex items-center gap-3">
@@ -73,5 +68,6 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
 
 
