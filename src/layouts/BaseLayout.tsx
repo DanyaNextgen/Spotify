@@ -37,4 +37,3 @@ const BaseLayout: React.FC<BaseLayoutProps> = () => {
 
 export default BaseLayout;
 
-
