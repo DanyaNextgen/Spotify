@@ -8,6 +8,7 @@ import { GoHomeFill } from "react-icons/go";
 import { IoIosSearch } from "react-icons/io";
 import { FaRegBell } from "react-icons/fa";
 import { PiUsersThree } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [search, setSearch] = useState("");
@@ -39,9 +40,11 @@ const Header = () => {
         </div>
         
         <div className="flex gap-4">
-            <Button variant="ghost" className="sm: hidden md:block lg:block p-2 hover:bg-neutral-800 hover:text-white">
-                <GoHomeFill className="text-2xl" />
-            </Button>
+            <Link to="/">
+                <Button variant="ghost" className="sm:hidden md:block lg:block p-2 hover:bg-neutral-800 hover:text-white">
+                    <GoHomeFill className="text-2xl" />
+                </Button>
+            </Link>
 
             <div className="relative flex-1 max-w-md">
                 <IoIosSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl" />

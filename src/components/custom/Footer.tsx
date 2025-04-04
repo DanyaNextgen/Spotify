@@ -13,11 +13,6 @@ const Footer = () => {
   return (
     <footer className="flex sm:items-center lg:justify-between p-4 bg-black text-white items-center">
       <div className="hidden sm:flex md:flex items-center gap-4">
-        <img
-          src="/minor.jpg"
-          alt="Minor"
-          className="flex flex-col w-14 h-14 rounded-md"
-        />
         <div className="flex flex-col">
           <span className="text-sm font-semibold">Minor</span>
           <span className="text-xs text-gray-400">Miyagi & Andy Panda</span>

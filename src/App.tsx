@@ -1,23 +1,26 @@
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import BaseLayout from "@/layouts/BaseLayout";
-import AuthorizedLayout from "@/layouts/AuthorizedLayout";
-import Login from "@/pages/login";
+import BaseLayout from "./layouts/BaseLayout";
+import Home from "./pages/home";
+import AuthLayout from "./layouts/AuthorizedLayout";
+import Login from "./pages/login";
+import Profile from "./pages/profile";
+import Playlist from "./pages/playlist";
 
 function App() {
-  const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
-
   return (
-    <Routes>
-      <Route path="/" element={isAuthenticated ? <BaseLayout /> : <Navigate to="/login" />} >
-        <Route index element={<BaseLayout />} />
-      </Route>
-
-      <Route path="/me" element={<AuthorizedLayout />}>
-      </Route>
-
-      <Route path="/login" element={<Login />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<BaseLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/playlist/:playlistId" element={<Playlist />} />
+        </Route>
+        <Route path="/me" element={<AuthLayout />}>
+          <Route index element={<Profile />} />
+        </Route>
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </>
   );
 }
 

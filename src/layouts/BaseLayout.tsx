@@ -1,38 +1,40 @@
-import { ResizablePanel, ResizableHandle, ResizablePanelGroup } from "@/components/ui/resizable";
-import RightSidebar from "@/components/custom/RightSidebar";
+import React, { createContext } from "react";
+import { Outlet } from "react-router-dom";
+import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
 import Sidebar from "@/components/custom/Sidebar";
-import Content from "@/components/custom/Content";
-import Footer from "@/components/custom/Footer";
 import Header from "@/components/custom/Header";
+import Footer from "@/components/custom/Footer";
 
-interface BaseLayoutProps {}
+interface baseLayoutProps {}
 
-const BaseLayout: React.FC<BaseLayoutProps> = () => {
-  return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <div className="flex-grow flex">
-        <ResizablePanelGroup direction="horizontal" className="h-full w-full">
-          <ResizablePanel defaultSize={20} minSize={1} maxSize={15} className="lg:block sm:hidden md:hidden">
-            <Sidebar />
-          </ResizablePanel>
+export const tokenCTX = createContext<string>("");
 
-          <ResizableHandle className="w-1 bg-transparent hover:bg-white" />
+const BaseLayout: React.FC<baseLayoutProps> = () => {
+	const token: string = localStorage.getItem("token") || "";
 
-          <ResizablePanel defaultSize={60} className="h-full w-full">
-            <Content />
-          </ResizablePanel>
+	return (
+		<tokenCTX.Provider value={token}>
+			<div className="h-screen w-full flex flex-col">
+				<Header />
 
-          <ResizableHandle className="w-1 bg-transparent hover:bg-white" />
+				<ResizablePanelGroup direction="horizontal" className="flex-1">
+					<ResizablePanel defaultSize={15} minSize={5} className="max-w-150">
+						<Sidebar />
+					</ResizablePanel>
 
-          <ResizablePanel defaultSize={20} minSize={1} maxSize={15} className="lg:block sm:hidden md:hidden">
-            <RightSidebar />
-          </ResizablePanel>
-        </ResizablePanelGroup>
-      </div>
-      <Footer />
-    </div>
-  );
+					<ResizableHandle />
+
+					<ResizablePanel>
+						<main className="p-4 overflow-auto h-full">
+							<Outlet />
+						</main>
+					</ResizablePanel>
+				</ResizablePanelGroup>
+
+				<Footer />
+			</div>
+		</tokenCTX.Provider>
+	);
 };
 
 export default BaseLayout;
